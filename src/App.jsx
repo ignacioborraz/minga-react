@@ -1,6 +1,5 @@
-import NavBar from "./components/NavBar"
 import Index from "./pages/Index"
-import Footer from "./components/Footer"
+import Main from "./layouts/Main"
 
 function App() {
 	let data = [
@@ -14,9 +13,9 @@ function App() {
 	return (
 		<div className='flex flex-col min-h-screen items-center justify-between bg-[url("/img/home.png")] bg-center bg-cover
 		md:bg-none md:bg-white'>
-			<NavBar />
-			<Index data={data} />
-			<Footer />
+			<Main>
+				<Index data={data} />
+			</Main>
 		</div>
 	)
 }
