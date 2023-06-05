@@ -1,8 +1,8 @@
 import NavBar from "../components/NavBar"
 import Footer from "../components/Footer"
 
-export default function Main({children}) {
-    console.log(children);
+export default function Main({ children }) {
+    //console.log(children);
     return (
         <>
         <NavBar />
