@@ -1,8 +1,8 @@
 export default function Footer() {
+    
     return (
         <footer className='flex flex-col w-full justify-between items-center pb-5 bg-white'>
-            <img className='object-cover hidden w-full h-60 rounded-[0px_0px_50%_50%]
-            md:flex' src="/img/footer.png"/>
+            <img className='object-cover hidden md:flex w-full h-40 rounded-[0px_0px_50%_50%]' src="/img/footer.png"/>
             <div className='flex flex-col items-center px-5 w-full
             md:w-11/12 md:flex-row md:justify-between '>
                 <div className='flex justify-evenly items-center mt-2'>
@@ -22,4 +22,5 @@ export default function Footer() {
             </div>
         </footer>
     )
+
 }
