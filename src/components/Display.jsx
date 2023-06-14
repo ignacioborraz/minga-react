@@ -1,3 +1,5 @@
+import { Link as Anchor } from "react-router-dom"
+
 export default function Display({ options,show,setShow }) {
 
     let name = 'Ignacio Javier Borraz'
@@ -15,7 +17,7 @@ export default function Display({ options,show,setShow }) {
                     <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12"></path>
                 </svg>
             </div>
-            {options?.map((each,index)=> <input type='button' key={index} className="w-11/12 my-1 p-2 text-gray-100 hover:bg-white hover:text-[#F472B6] hover:rounded-lg" value={each.title} /> )}
+            {options?.map((each,index)=> <Anchor key={index} to={each.to} className="w-11/12 my-1 p-2 text-gray-100 hover:bg-white hover:text-[#F472B6] hover:rounded-lg">{each.title}</Anchor> )}
         </div>
     )
 
