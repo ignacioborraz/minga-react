@@ -32,8 +32,7 @@ export default function Carousel() {
             <img className='object-cover w-40 h-56 mx-10 mb-12 self-end' src={categories[counter]?.cover_photo}/>
             <div className='text-l p-2 text-white sm:w-10/12 xl:w-6/12 xl:px-10'>
                 <h3 className='text-2xl' style={{ color: categories[counter]?.color }}>{categories[counter]?.name.toUpperCase()}</h3>
-                <p className='text-xs
-                xl:text-sm' style={{ color: categories[counter]?.color }}>{categories[counter]?.description}</p>
+                <p className='text-xs xl:text-sm' style={{ color: categories[counter]?.color }}>{categories[counter]?.description}</p>
             </div>
             <Arrow color={categories[counter]?.color} d={d_right} onClick={next} />
         </div>
