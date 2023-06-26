@@ -1,4 +1,4 @@
-import { Link as Anchor,useNavigate } from "react-router-dom"
+import { Link as Anchor } from "react-router-dom"
 import { useRef } from "react"
 import axios from "axios"
 import apiUrl from '../apiUrl'
@@ -6,7 +6,6 @@ import Swal from "sweetalert2"
 
 export default function SignIn() {
     
-    const navigate = useNavigate()
     const email = useRef()
     const password =  useRef()
 
@@ -17,7 +16,7 @@ export default function SignIn() {
         }
         //console.log(data)
         axios.post(apiUrl+'/auth/signin',data)
-        .then(()=>navigate('/'))
+        .then(()=>window.location.replace('/'))
         .catch(err=>Swal.fire({
             icon: 'error',
             html: err.response.data.messages.map(each=>`<p>${each}</p>`).join('')
