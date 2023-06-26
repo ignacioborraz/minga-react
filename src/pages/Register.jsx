@@ -17,7 +17,7 @@ export default function Register() {
         photo: photo.current.value,
         password: password.current.value
         }
-        console.log(data)
+        //console.log(data)
         axios.post(apiUrl+'/auth/register',data)
         .then(()=>Swal.fire({
             icon: 'success',

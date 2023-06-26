@@ -1,22 +1,29 @@
 import { Link as Anchor,useNavigate } from "react-router-dom"
 import { useRef } from "react"
+import axios from "axios"
+import apiUrl from '../apiUrl'
+import Swal from "sweetalert2"
 
 export default function SignIn() {
     
     const navigate = useNavigate()
-    const signin = ()=> {
-        let data = {
-            email: email.current.value,
-            password: password.current.value
-        }
-        console.log(data)
-        //data se envía en la petición POST al backend
-        //redirigir en caso de éxito
-        //mostrar alertas en caso de fracaso
-        setTimeout(()=>navigate('/'),5000)
-    }
     const email = useRef()
     const password =  useRef()
+
+    const signin = () => {
+        let data = {
+        email: email.current.value,
+        password: password.current.value
+        }
+        //console.log(data)
+        axios.post(apiUrl+'/auth/register',data)
+        .then(()=>navigate('/signin'))
+        .catch(err=>Swal.fire({
+            icon: 'error',
+            text: 'sign in please!',
+            html: err.response.data.messages.map(each=>`<p>${each}</p>`).join('')
+        }))
+    }
 
     return (
         <main className="flex w-full min-h-screen items-center justify-between">
