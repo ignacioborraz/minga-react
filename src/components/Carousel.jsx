@@ -9,7 +9,7 @@ export default function Carousel() {
     const [counter,setCounter] = useState(0)
     useEffect(
         ()=> {
-            axios(apiUrl+'/categories')
+            axios(import.meta.env.VITE_API_URL+'/categories')
                 .then(res=> {
                     //console.log(res)
                     setCategories(res.data.response)
