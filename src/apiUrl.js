@@ -1,7 +1,3 @@
-let apiUrl = 'https://minga.up.railway.app/api'
-
-if (import.meta.env.VITE_VERCEL_ENV==='production') {
-    apiUrl = import.meta.env.VITE_API_URL
-}
+let apiUrl = import.meta.env.VITE_API_URL || 'http://localhost:8080/api'
 
 export default apiUrl
