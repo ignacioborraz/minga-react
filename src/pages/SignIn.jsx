@@ -17,10 +17,9 @@ export default function SignIn() {
         }
         //console.log(data)
         axios.post(apiUrl+'/auth/signin',data)
-        .then(()=>navigate('/signin'))
+        .then(()=>navigate('/'))
         .catch(err=>Swal.fire({
             icon: 'error',
-            text: 'sign in please!',
             html: err.response.data.messages.map(each=>`<p>${each}</p>`).join('')
         }))
     }

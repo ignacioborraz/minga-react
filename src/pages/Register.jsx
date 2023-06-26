@@ -26,7 +26,6 @@ export default function Register() {
         .then(()=>navigate('/signin'))
         .catch(err=>Swal.fire({
             icon: 'error',
-            text: 'sign in please!',
             html: err.response.data.messages.map(each=>`<p>${each}</p>`).join('')
         }))
     }
