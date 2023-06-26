@@ -16,7 +16,7 @@ export default function SignIn() {
         password: password.current.value
         }
         //console.log(data)
-        axios.post(apiUrl+'/auth/register',data)
+        axios.post(apiUrl+'/auth/signin',data)
         .then(()=>navigate('/signin'))
         .catch(err=>Swal.fire({
             icon: 'error',
