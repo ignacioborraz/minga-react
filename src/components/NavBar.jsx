@@ -13,7 +13,7 @@ async function signout(event) {
     event.preventDefault()
     try {
         await axios.post(
-            apiURL+'/auth/signout',
+            apiURL+'auth/signout',
             null,
             header()
         )

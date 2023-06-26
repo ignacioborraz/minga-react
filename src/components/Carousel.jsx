@@ -9,8 +9,8 @@ export default function Carousel() {
     const [counter,setCounter] = useState(0)
     useEffect(
         ()=> {
-            //console.log(apiUrl);
-            axios(apiUrl+'/categories')
+            console.log(apiUrl);
+            axios(apiUrl+'categories')
                 .then(res=> {
                     //console.log(res)
                     setCategories(res.data.response)

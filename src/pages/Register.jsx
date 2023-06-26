@@ -18,7 +18,7 @@ export default function Register() {
         password: password.current.value
         }
         console.log(data)
-        axios.post(apiUrl+'/auth/register',data)
+        axios.post(apiUrl+'auth/register',data)
         .then(()=>Swal.fire({
             icon: 'success',
             text: 'sign in please!'
