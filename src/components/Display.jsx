@@ -1,6 +1,6 @@
 import { Link as Anchor } from "react-router-dom"
 
-export default function Display({ options,show,setShow }) {
+export default function Display({ signout,options,show,setShow }) {
 
     let name = 'Ignacio Javier Borraz'
     let email = 'ignacioborraz@hotmail.com'
@@ -17,7 +17,10 @@ export default function Display({ options,show,setShow }) {
                     <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12"></path>
                 </svg>
             </div>
-            {options?.map((each,index)=> <Anchor key={index} to={each.to} className="w-11/12 my-1 p-2 text-gray-100 hover:bg-white hover:text-[#F472B6] hover:rounded-lg">{each.title}</Anchor> )}
+            {options?.map((each,index)=> each.title==='Sign Out' ? (
+                <a key={index} onClick={signout} href='/' className="w-11/12 my-1 p-2 text-gray-100 hover:bg-white hover:text-[#F472B6] hover:rounded-lg">{each.title}</a>
+            ) : ( <Anchor key={index} to={each.to} className="w-11/12 my-1 p-2 text-gray-100 hover:bg-white hover:text-[#F472B6] hover:rounded-lg">{each.title}</Anchor>
+            ))}
         </div>
     )
 

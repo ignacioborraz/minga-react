@@ -1,24 +1,35 @@
-import { Link as Anchor,useNavigate } from "react-router-dom"
+import { Link as Anchor, useNavigate } from "react-router-dom"
 import { useRef } from "react"
+import axios from "axios"
+import apiUrl from '../apiUrl'
+import Swal from "sweetalert2"
 
 export default function Register() {
 
-    const navigate = useNavigate()
-    const register = ()=> {
+  const navigate = useNavigate()
+  const email = useRef()
+  const photo = useRef()
+  const password = useRef()
+
+  const register = () => {
         let data = {
-            email: email.current.value,
-            photo: photo.current.value,
-            password: password.current.value
+        email: email.current.value,
+        photo: photo.current.value,
+        password: password.current.value
         }
         console.log(data)
-        //data se envía en la petición POST al backend
-        //redirigir en caso de éxito
-        //mostrar alertas en caso de fracaso
-        setTimeout(()=>navigate('/'),5000)
+        axios.post(apiUrl+'/auth/register',data)
+        .then(()=>Swal.fire({
+            icon: 'success',
+            text: 'sign in please!'
+            }))
+        .then(()=>navigate('/signin'))
+        .catch(err=>Swal.fire({
+            icon: 'error',
+            text: 'sign in please!',
+            html: err.response.data.messages.map(each=>`<p>${each}</p>`).join('')
+        }))
     }
-    const email = useRef()
-    const photo = useRef()
-    const password =  useRef()
     
     return (
         <main className='flex w-full min-h-screen items-center justify-between'>
