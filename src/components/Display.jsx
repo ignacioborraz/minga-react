@@ -1,16 +1,12 @@
 import { Link as Anchor } from "react-router-dom"
 
-export default function Display({ signout,options,show,setShow }) {
-
-    let name = 'Ignacio Javier Borraz'
-    let email = 'ignacioborraz@hotmail.com'
+export default function Display({ signout,options,show,setShow,email,photo }) {
 
     return (
         <div className="absolute z-20 top-0 left-0 h-full w-full bg-gradient-to-r from-[#F9A8D4] to-[#F472B6] flex flex-col items-center md:w-[500px]">
             <div className="w-11/12 my-1 p-2 flex justify-between items-center">
-                <img className="h-14" src="/img/profile.png" alt="" />
+                <img className="h-14" src={photo} alt={photo} />
                 <div className="w-full px-3 flex flex-col">
-                    <span className="font-semibold text-gray-100">{name}</span>
                     <span className="font-semibold text-gray-100">{email}</span>    
                 </div>
                 <svg onClick={()=>setShow(!show)} className="h-14 w-14 p-2 font-semibold text-gray-100 text-end hover:text-white" fill="none" stroke="currentColor" strokeWidth="1.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
