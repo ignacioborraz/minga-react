@@ -1,5 +1,6 @@
 import NavBar from "../components/NavBar"
 import Footer from "../components/Footer"
+import ScrollToTop from "../components/ScrollToTop"
 import { Outlet } from "react-router-dom"
 
 export default function Main() {
@@ -9,6 +10,7 @@ export default function Main() {
             <NavBar />
             {/* vistas dinamicasss (por ahora SOLO index) */}
             <Outlet />
+            <ScrollToTop />
             <Footer />
         </div>
     )
