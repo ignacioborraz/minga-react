@@ -4,7 +4,8 @@ import axios from "axios"
 import apiUrl from '../apiUrl'
 import Swal from "sweetalert2"
 import headers from "../utils/headers"
-import roles from "../utils/roles"
+import roles from "../utils/online"
+import ButtonForm from "../components/ButtonForm"
 
 export default function MangaForm() {
 
@@ -62,7 +63,7 @@ export default function MangaForm() {
                         {categories.map(each=> <option key={each._id} value={each._id}>{each.name}</option>)}
                     </select>
                     <input ref={description} className="placeholder-black w-[260px] md:w-[300px] lg:w-[360px] xl:w-[440px] h-[60px] p-2 my-[12px] text-[12px] rounded-lg border-2 border-[#1F1F1F]" type="text" name="description" id="description" placeholder="Description" />
-                    <input onClick={create} className="w-[260px] md:w-[300px] lg:w-[360px] xl:w-[440px] h-[60px] p-2 my-[12px] text-xl text-white rounded-lg bg-gradient-to-r from-[#F9A8D4] to-[#F472B6]" type="button" value="create" />
+                    <ButtonForm onClick={create} value='create!' />
                 </form>
             </div>
             <img className="hidden md:block md:absolute md:top-0 md:right-0 h-screen w-[50%] object-cover" src="/img/register.png" alt="register" />

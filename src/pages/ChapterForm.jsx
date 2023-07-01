@@ -4,7 +4,8 @@ import axios from "axios"
 import apiUrl from '../apiUrl'
 import Swal from "sweetalert2"
 import headers from "../utils/headers"
-import roles from "../utils/roles"
+import roles from "../utils/online"
+import ButtonForm from "../components/ButtonForm"
 
 export default function ChapterForm() {
 
@@ -48,7 +49,7 @@ export default function ChapterForm() {
                     <input ref={title} className="placeholder-black w-[260px] md:w-[300px] lg:w-[360px] xl:w-[440px] h-[60px] p-2 my-[12px] text-[12px] rounded-lg border-2 border-[#1F1F1F]" type="text" name="title" id="title" placeholder="Title" />
                     <input ref={order} className="placeholder-black w-[260px] md:w-[300px] lg:w-[360px] xl:w-[440px] h-[60px] p-2 my-[12px] text-[12px] rounded-lg border-2 border-[#1F1F1F]" type="number" name="order" id="order" placeholder="Order" />
                     <input ref={pages} className="placeholder-black w-[260px] md:w-[300px] lg:w-[360px] xl:w-[440px] h-[60px] p-2 my-[12px] text-[12px] rounded-lg border-2 border-[#1F1F1F]" type="text" name="pages" id="pages" placeholder="page1,page2,page3..." />
-                    <input onClick={create} className="w-[260px] md:w-[300px] lg:w-[360px] xl:w-[440px] h-[60px] p-2 my-[12px] text-xl text-white rounded-lg bg-gradient-to-r from-[#F9A8D4] to-[#F472B6]" type="button" value="Register" />
+                    <ButtonForm onClick={create} value='create!' />
                 </form>
             </div>
             <img className="hidden md:block md:absolute md:top-0 md:right-0 h-screen w-[50%] object-cover" src="/img/register.png" alt="register" />
