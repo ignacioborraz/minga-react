@@ -56,6 +56,11 @@ export default function NavBar() {
                             { to: "/manga-form", title: "Create Manga" },
                             { to: "/", title: "Sign Out" }
                         ])
+                    } else if (res.data.response.user.role===3) {
+                        setOptions([
+                            { to: "/", title: "Home" },
+                            { to: "/", title: "Sign Out" }
+                        ])
                     }
                     setPhoto(res.data.response.user.photo)
                     setEmail(res.data.response.user.email)
