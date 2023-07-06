@@ -4,7 +4,7 @@ import axios from "axios"
 import apiUrl from '../apiUrl'
 import Swal from "sweetalert2"
 import headers from "../utils/headers"
-import roles from "../utils/online"
+import roles from "../utils/info"
 import ButtonForm from "../components/ButtonForm"
 
 export default function ChapterForm() {

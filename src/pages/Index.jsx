@@ -1,5 +1,6 @@
 import Carousel from "../components/Carousel"
 import Welcome from "../components/Welcome"
+import info from "../utils/info"
 
 export default function Index() {
 
@@ -11,7 +12,10 @@ export default function Index() {
     return (
          <main className='flex flex-col md:pt-20 w-full min-h-screen items-center justify-between'>
             <Carousel />
-            <Welcome title={welcome.title} subt1={welcome.subt1} subt2={welcome.subt2} />
+            {info().online ?
+                <Welcome title={welcome.title} subt1={welcome.subt1} subt2={welcome.subt2} />:
+                <Welcome title={welcome.title} button='Sign in!' to='/signin' subt1={welcome.subt1} subt2={welcome.subt2} />
+            }
         </main>
     )
 
