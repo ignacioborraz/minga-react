@@ -1,7 +1,7 @@
 import { createReducer } from "@reduxjs/toolkit"
 import actions from "../actions/categories"
 
-const { save_categories } = actions
+const { save_categories,save_current_category } = actions
 
 const initial_state = {
     categories: [],
@@ -17,6 +17,16 @@ const reducer = createReducer(
                 let new_state = {
                     ...state,
                     categories: action.payload.categories
+                }
+                return new_state
+            }
+        )
+        .addCase(
+            save_current_category,
+            (state,action)=> {
+                let new_state = {
+                    ...state,
+                    current_category: action.payload.current_category
                 }
                 return new_state
             }

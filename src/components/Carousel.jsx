@@ -24,7 +24,6 @@ export default function Carousel() {
                 })
                 .catch(err=>console.log(err))
             }
-
         },
         []
     )
