@@ -2,19 +2,29 @@ import { useEffect,useState } from "react"
 import axios from 'axios'
 import apiUrl from '../apiUrl'
 import Arrow from "./Arrow"
+import { useSelector,useDispatch } from "react-redux"
+import category_actions from '../store/actions/categories'
+
+const { save_categories } = category_actions
 
 export default function Carousel() {
 
-    const [categories,setCategories] = useState([])
+    const categories = useSelector(store=>store.categories.categories)
+    const dispatch = useDispatch()
+    console.log(categories)
     const [counter,setCounter] = useState(0)
     useEffect(
         ()=> {
+            if (categories.length===0) {
             axios(apiUrl+'/categories')
                 .then(res=> {
                     //console.log(res)
-                    setCategories(res.data.response)
+                    //setCategories(res.data.response)
+                    dispatch(save_categories({ categories:res.data.response }))
                 })
                 .catch(err=>console.log(err))
+            }
+
         },
         []
     )
