@@ -1,5 +1,5 @@
 import { createBrowserRouter,redirect } from "react-router-dom"
-import { Index,Main,SignIn,Register,MangaForm,AuthorForm,CompanyForm,ChapterForm,Allow } from "./index"
+import { Index,Main,SignIn,Register,MangaForm,AuthorForm,CompanyForm,ChapterForm,Allow,AuthorProfile } from "./index"
 import info from "../utils/info"
 
 const router = createBrowserRouter([
@@ -16,7 +16,8 @@ const router = createBrowserRouter([
             { path: '/author-form', element: <AuthorForm />, loader: async()=> (info().role===1 || info().role===2) && redirect("/bad-auth")},
             { path: '/cia-form', element: <CompanyForm />, loader: async()=> (info().role===1 || info().role===2) && redirect("/bad-auth")},
             { path: '/:manga_id/chapter-form', element: <ChapterForm />, loader: async()=> (info().role===0 || info().role===3) && redirect("/bad-auth")},
-            { path: '/*', element: <Allow />},
+            { path: '/me', element: <AuthorProfile />, loader: async()=> (info().role===0 || info().role===2 || info().role===3) && redirect("/bad-auth")},
+            { path: '/*', element: <Allow />}
         ]
     }
 ])
