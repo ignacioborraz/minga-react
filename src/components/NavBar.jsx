@@ -46,6 +46,7 @@ export default function NavBar() {
                     if (res.data.response.user.role===0) {
                         setOptions([
                             { to: "/", title: "Home" },
+                            { to: "/mangas/1", title: "Mangas"},
                             { to: "/author-form", title: "Create Author"},
                             { to: "/cia-form", title: "Create Company"},
                             { to: "/", title: "Sign Out" }
@@ -53,6 +54,7 @@ export default function NavBar() {
                     } else if (res.data.response.user.role===1 || res.data.response.user.role===2) {
                         setOptions([
                             { to: "/", title: "Home" },
+                            { to: "/mangas/1", title: "Mangas"},
                             { to: "/manga-form", title: "Create Manga" },
                             { to: "/me", title: "Profile" },
                             { to: "/", title: "Sign Out" }
@@ -60,6 +62,7 @@ export default function NavBar() {
                     } else if (res.data.response.user.role===3) {
                         setOptions([
                             { to: "/", title: "Home" },
+                            { to: "/mangas/1", title: "Mangas"},
                             { to: "/", title: "Sign Out" }
                         ])
                     }
