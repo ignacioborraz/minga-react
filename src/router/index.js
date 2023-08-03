@@ -10,3 +10,4 @@ export { default as MangaForm } from '../pages/MangaForm'
 export { default as ChapterForm } from '../pages/ChapterForm'
 
 export { default as AuthorProfile } from '../pages/AuthorProfile'
+export { default as Mangas } from '../pages/Mangas'

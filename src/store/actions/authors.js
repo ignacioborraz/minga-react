@@ -1,11 +1,8 @@
-import { createAction } from "@reduxjs/toolkit"
+import { createAction } from "@reduxjs/toolkit";
 
-const save_profile = createAction(
-    'save_profile',
-    (data)=> {
-        return { payload: data }
-    }
-)
+const save_profile = createAction("save_profile", (data) => {
+  return { payload: data };
+});
 
-const actions = { save_profile }
-export default actions
+const actions = { save_profile };
+export default actions;

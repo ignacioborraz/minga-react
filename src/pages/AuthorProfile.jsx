@@ -10,7 +10,7 @@ import manga_actions from "../store/actions/mangas";
 const { save_profile } = author_actions;
 const { save_mangas_me } = manga_actions;
 
-export default function AuthorForm() {
+export default function AuthorProfile() {
   const dispatch = useDispatch();
   const profile = useSelector((store) => store.authors.profile);
   const logo = useSelector((store) => store.mangas.logo);
@@ -18,7 +18,6 @@ export default function AuthorForm() {
   const news = useSelector((store) => store.mangas.news);
   const olds = useSelector((store) => store.mangas.olds);
 	const [showNews,setShowNews] = useState(true)
-  console.log(olds);
   useEffect(() => {
     axios(apiUrl + "/authors/me", headers())
       .then((res) => dispatch(save_profile(res.data.profile)))
@@ -27,9 +26,10 @@ export default function AuthorForm() {
       .then((res) => dispatch(save_mangas_me(res.data.response)))
       //.then((res) => console.log(res.data.response))
       .catch((err) => console.log(err));
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   return (
-    <main className="flex flex-col pt-20 w-full min-h-screen items-center justify-start">
+    <main className="flex flex-col pt-20 w-full md:w-11/12 2xl:w-[1375px] min-h-screen items-center justify-start">
       <ProfileAuthor
         photo={profile?.photo}
         name={profile?.name}
