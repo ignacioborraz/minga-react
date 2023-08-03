@@ -10,7 +10,7 @@ export default function Display({
   photo,
 }) {
   return (
-    <div className="absolute z-20 top-0 left-0 h-full w-full bg-gradient-to-r from-[#F9A8D4] to-[#F472B6] flex flex-col items-center md:w-[500px]">
+    <div className="absolute z-20 top-0 left-0 h-full w-full bg-[#F472B6] flex flex-col items-center md:w-[500px]">
       <div className="w-11/12 my-1 p-2 flex justify-between items-center">
         <img className="h-14 rounded-full" src={photo} alt={photo} />
         <div className="w-full px-3 flex flex-col">

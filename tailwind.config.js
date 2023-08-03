@@ -7,6 +7,9 @@ module.exports = {
     fontFamily: {
       montserrat: ["Montserrat", "sans-serif"],
     },
+    backgroundImage: {
+      mangas: "url('/img/mangas.png')"
+    }
   },
   variants: {},
   plugins: [],

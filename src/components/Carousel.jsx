@@ -47,7 +47,7 @@ export default function Carousel() {
 
   return (
     <div
-      className="items-center justify-between rounded-lg mt-5 hidden px-5 md:flex md:h-56 md:w-full bg-gradient-to-r from-[#F9A8D4] to-[#F472B6]" /* style={{ backgroundColor: categories[counter]?.hover }} */
+      className="items-center justify-between rounded-lg mt-5 hidden px-5 md:flex md:h-56 md:w-full bg-[#F9A8D4]" /* style={{ backgroundColor: categories[counter]?.hover }} */
     >
       <Arrow d={d_left} onClick={prev} />
       <img

@@ -54,7 +54,7 @@ export default function AuthorForm() {
   };
 
   return (
-    <main className="flex w-full min-h-screen items-center justify-between">
+    <main className="flex w-full md:w-11/12 2xl:w-[1375px] min-h-screen items-center justify-between">
       <div className="flex flex-col md:absolute md:top-0 md:right-[50%] justify-center items-center h-screen w-full md:w-[50%]">
         <p className="font-semibold text-[32px] text-center">
           Become an Author!
@@ -105,7 +105,7 @@ export default function AuthorForm() {
       </div>
       <img
         className="hidden md:block md:absolute md:top-0 md:right-0 h-screen w-[50%] object-cover"
-        src="/img/register.png"
+        src="/img/forms.jpg"
         alt="register"
       />
     </main>

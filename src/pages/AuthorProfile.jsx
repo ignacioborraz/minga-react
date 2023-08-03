@@ -29,7 +29,7 @@ export default function AuthorProfile() {
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   return (
-    <main className="flex flex-col pt-20 w-full min-h-screen items-center justify-start">
+    <main className="flex flex-col pt-20 w-full md:w-11/12 2xl:w-[1375px] min-h-screen items-center justify-start">
       <ProfileAuthor
         photo={profile?.photo}
         name={profile?.name}

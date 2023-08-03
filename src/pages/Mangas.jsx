@@ -25,8 +25,11 @@ export default function Mangas() {
       .catch((err) => console.log(err));
   }, []);
   return (
-    <main className="flex flex-col pt-20 w-full min-h-screen items-center justify-start">
-			{mangas.map(each=> <CardManga key={each._id} manga={each}/>)}
+    <main className="flex flex-col pt-20 w-full min-h-screen items-center justify-start bg-mangas bg-cover bg-top">
+			<input type="text" name="" id="" />
+			<div className="rounded-[60px_60px_0_0] w-full md:w-11/12 2xl:w-[1375px] ">
+				{mangas.map(each=> <CardManga key={each._id} manga={each}/>)}
+			</div>
     </main>
   );
 }

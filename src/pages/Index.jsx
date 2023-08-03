@@ -9,7 +9,7 @@ export default function Index() {
     subt2: "#MingaForever 🔥",
   };
   return (
-    <main className="flex flex-col md:pt-20 w-full min-h-screen items-center justify-between">
+    <main className="flex flex-col md:pt-20 w-full md:w-11/12 2xl:w-[1375px] min-h-screen items-center justify-between">
       <Carousel />
       {info().online ? (
         <Welcome
