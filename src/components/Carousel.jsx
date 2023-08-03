@@ -59,8 +59,8 @@ export default function Carousel() {
         src={categories[counter]?.cover_photo}
       />
       <div className="w-[200px] lg:w-[300px] xl:w-[450px] text-l p-2 text-white xl:px-10">
-        <h3 className="text-2xl">{categories[counter]?.name.toUpperCase()}</h3>
-        <p className="text-xs xl:text-sm">{categories[counter]?.description}</p>
+        <h3 className="text-2xl text-gray-700">{categories[counter]?.name.toUpperCase()}</h3>
+        <p className="text-xs xl:text-sm text-gray-700">{categories[counter]?.description}</p>
       </div>
       <Arrow d={d_right} onClick={next} />
     </div>

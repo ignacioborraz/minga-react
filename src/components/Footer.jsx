@@ -55,7 +55,7 @@ export default function Footer() {
           </div>
           <Anchor
             to="/donate"
-            className="border-none bg-gradient-to-r from-[#F9A8D4] to-[#F472B6] w-full p-2 justify-center text-xl text-white mt-2 rounded-lg"
+            className="border-none bg-[#F472B6] hover:drop-shadow-xl w-full p-2 text-center text-xl text-white mt-2 rounded-lg"
           >
             Donate ❤️
           </Anchor>

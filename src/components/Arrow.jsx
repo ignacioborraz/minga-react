@@ -8,7 +8,7 @@ export default function Arrow({ d, onClick }) {
       viewBox="0 0 24 24"
       strokeWidth={1.5}
       stroke="currentColor"
-      className="text-white w-[50px] h-[50px] rounded-full hover:bg-[#FF54AC]"
+      className="text-gray-700 w-[50px] h-[50px] rounded-full hover:drop-shadow-xl"
     >
       <path strokeLinecap="round" strokeLinejoin="round" d={d} />
     </svg>

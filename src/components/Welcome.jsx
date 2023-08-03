@@ -14,7 +14,7 @@ export default function Welcome({ title, subt1, subt2, button, to }) {
       {button && (
         <Anchor
           to={to}
-          className="border-none bg-[#F9A8D4] hover:bg-[#F472B6] w-40 p-2 flex items-center justify-center md:justify-start text-xl rounded-lg"
+          className="border-none bg-[#F472B6] hover:drop-shadow-xl w-40 p-2 flex items-center justify-center md:justify-start text-xl rounded-lg"
         >
           {button}
         </Anchor>
