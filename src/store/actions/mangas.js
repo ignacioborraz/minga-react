@@ -6,7 +6,7 @@ const save_mangas_me = createAction("save_mangas_me", (data) => {
       logo: data.logo,
       all: data.all,
       news: data.news,
-      olds: data.olds,
+      olds: data.olds
     },
   };
 });
@@ -19,5 +19,9 @@ const save_text = createAction("save_text", (data) => {
   return { payload: { text: data.text } };
 });
 
-const actions = { save_mangas_me, save_checks, save_text };
+const save_manga = createAction("save_manga", (data) => {
+  return { payload: { current_manga: data.current_manga } };
+});
+
+const actions = { save_mangas_me, save_checks, save_text, save_manga };
 export default actions;
