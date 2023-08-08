@@ -11,6 +11,7 @@ import {
   Allow,
   AuthorProfile,
   Mangas,
+  MangaDetail
 } from "./index";
 import info from "../utils/info";
 
@@ -66,6 +67,11 @@ const router = createBrowserRouter([
       {
         path: "/mangas/:page",
         element: <Mangas />,
+        loader: async () => !info().online && redirect("/bad-auth"),
+      },
+      {
+        path: "/manga/:id/:page",
+        element: <MangaDetail />,
         loader: async () => !info().online && redirect("/bad-auth"),
       },
       { path: "/*", element: <Allow /> },

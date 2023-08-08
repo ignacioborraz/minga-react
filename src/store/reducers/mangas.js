@@ -1,7 +1,7 @@
 import { createReducer } from "@reduxjs/toolkit";
 import actions from "../actions/mangas";
 
-const { save_mangas_me, save_checks, save_text } = actions;
+const { save_mangas_me, save_checks, save_text, save_manga } = actions;
 
 const initial_state = {
   logo: "",
@@ -10,6 +10,7 @@ const initial_state = {
   olds: [],
   checks: [],
   text: "",
+  current_manga: {}
 };
 
 const reducer = createReducer(initial_state, (build) =>
@@ -28,6 +29,10 @@ const reducer = createReducer(initial_state, (build) =>
     })
     .addCase(save_text, (state, action) => {
       let new_state = { ...state, text: action.payload.text };
+      return new_state;
+    })
+    .addCase(save_manga, (state, action) => {
+      let new_state = { ...state, current_manga: action.payload.current_manga };
       return new_state;
     })
 );
