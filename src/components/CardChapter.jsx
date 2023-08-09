@@ -18,7 +18,7 @@ export default function CardChapter({ chapter }) {
         </p>
       </span>
       <Anchor
-        to={`/chapter/${chapter._id}/1`}
+        to={`/chapter/${chapter._id}/0`}
         className="w-[80px] lg:w-[120px] h-[40px] lg:h-[80px] p-2 text-[18px] lg:text-[24px] text-white rounded-full bg-[#F472B6] hover:drop-shadow-xl flex justify-center items-center cursor-pointer"
         value="read"
       >
