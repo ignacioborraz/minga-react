@@ -7,6 +7,8 @@ import ProfileAuthor from "../components/ProfileAuthor";
 import SwitchAuthor from "../components/SwitchAuthor";
 import author_actions from "../store/actions/authors";
 import manga_actions from "../store/actions/mangas";
+import ButtonForm from "../components/ButtonForm";
+import { useNavigate } from "react-router-dom";
 const { save_profile } = author_actions;
 const { save_mangas_me } = manga_actions;
 
@@ -28,8 +30,12 @@ export default function AuthorProfile() {
       .catch((err) => console.log(err));
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
+  const navigate = useNavigate()
+  function manage() {
+	navigate('/mymangas')
+  }
   return (
-    <main className="flex flex-col pt-20 w-full md:w-11/12 2xl:w-[1375px] min-h-screen items-center justify-start">
+    <main className="flex flex-col py-20 w-full md:w-11/12 2xl:w-[1375px] min-h-screen items-center justify-start">
       <ProfileAuthor
         photo={profile?.photo}
         name={profile?.name}
@@ -75,6 +81,7 @@ export default function AuthorProfile() {
 					)
 				)}
 			</div>
+			<ButtonForm onClick={manage} value="manage" />
     </main>
   );
 }

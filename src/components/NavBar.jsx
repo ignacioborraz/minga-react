@@ -3,6 +3,8 @@ import { useState,useEffect,useRef } from "react";
 import axios from "axios"
 import apiURL from "../apiUrl"
 import headers from "../utils/headers"
+import { useLocation } from "react-router-dom";
+import { useSelector } from "react-redux";
   
 async function signout(event) {
     event.preventDefault()
@@ -32,6 +34,10 @@ function catch_token(setOptions) {
 
 export default function NavBar() {
 
+    const number = useSelector(store=> store.chapters.number)
+    const title = useSelector(store=> store.chapters.title)
+    const location = useLocation()
+    //console.log(location);
     const [options,setOptions] = useState([
         { to: "/", title: "Home" }
     ])
@@ -95,6 +101,7 @@ export default function NavBar() {
                 <svg ref={menuIcon} onClick={()=>setShow(!show)} className="h-14 p-1 text-[#F472B6] hover:text-white  bg-[#EBEBEB] hover:bg-[#F472B6] rounded-lg" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
                 </svg>
+                {location.pathname.includes('chapter/') && <span>#{number} - {title}</span>}
                 <img  className='h-14 p-1' src="/img/logo.png"/>
             </nav>
         </>
