@@ -1,18 +1,18 @@
 import { useEffect, useState } from "react";
-//import { useDispatch } from "react-redux";
+import { useDispatch } from "react-redux";
 import axios from "axios";
 import apiUrl from "../apiUrl";
 import headers from "../utils/headers";
 import { useNavigate, useParams } from "react-router-dom";
 import ArrowPage from "../components/ArrowPage";
-//import manga_actions from "../store/actions/mangas";
-//const { save_manga } = manga_actions;
+import chapter_actions from "../store/actions/chapters";
+const { save_chapter } = chapter_actions;
 
 export default function Page() {
   const { id, page } = useParams();
   //id: parámetro con el id del capitulo a leer
   //page: parámetro con la página actual
-  //const dispatch = useDispatch();
+  const dispatch = useDispatch();
   const [currentPage, setCurrentPage] = useState(Number(page));
   //currentPage: estado para guardar la pagina actual
   //setCurrentPage: funcion seteadora del estado
@@ -42,6 +42,7 @@ export default function Page() {
         setNextChapter(res.data.next_id);
         setOrder(res.data.order);
         setManga(res.data.manga_id);
+        dispatch(save_chapter({ number: res.data.order, title:res.data.title}))
       })
       .catch((err) => {
         console.log(err);
