@@ -12,7 +12,9 @@ import {
   AuthorProfile,
   Mangas,
   MangaDetail,
-  Page
+  Page,
+  MyMangas,
+  MangaEdit
 } from "./index";
 import info from "../utils/info";
 
@@ -79,6 +81,27 @@ const router = createBrowserRouter([
         path: "/chapter/:id/:page",
         element: <Page />,
         loader: async () => !info().online && redirect("/bad-auth"),
+      },
+      {
+        path: "/mymangas",
+        element: <MyMangas />,
+        loader: async () =>
+          (info().role === 0 || info().role === 2 || info().role === 3) &&
+          redirect("/bad-auth")
+      },
+      {
+        path: "/edit-manga/:id",
+        element: <MangaEdit />,
+        loader: async () =>
+          (info().role === 0 || info().role === 2 || info().role === 3) &&
+          redirect("/bad-auth")
+      },
+      {
+        path: "/edit-chapters/:id",
+        element: <MangaEdit />,
+        loader: async () =>
+          (info().role === 0 || info().role === 2 || info().role === 3) &&
+          redirect("/bad-auth")
       },
       { path: "/*", element: <Allow /> },
     ],

@@ -13,3 +13,6 @@ export { default as AuthorProfile } from '../pages/AuthorProfile'
 export { default as Mangas } from '../pages/Mangas'
 export { default as MangaDetail } from '../pages/MangaDetail'
 export { default as Page } from '../pages/Page'
+
+export { default as MyMangas } from '../pages/MyMangas'
+export { default as MangaEdit } from '../pages/MangaEdit'
