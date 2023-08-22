@@ -96,6 +96,13 @@ const router = createBrowserRouter([
           (info().role === 0 || info().role === 2 || info().role === 3) &&
           redirect("/bad-auth")
       },
+      {
+        path: "/edit-chapters/:id",
+        element: <MangaEdit />,
+        loader: async () =>
+          (info().role === 0 || info().role === 2 || info().role === 3) &&
+          redirect("/bad-auth")
+      },
       { path: "/*", element: <Allow /> },
     ],
   },

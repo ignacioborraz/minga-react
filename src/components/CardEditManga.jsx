@@ -1,5 +1,5 @@
 /* eslint-disable react/prop-types */
-import { Link as Anchor,useNavigate } from "react-router-dom";
+import { Link as Anchor, useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import ModalManga from "../pages/MangaEdit";
 import manga_actions from "../store/actions/mangas";
@@ -8,8 +8,8 @@ const { destroy_manga } = manga_actions;
 
 export default function CardEditManga({ manga }) {
   const dispatch = useDispatch();
-  const navigate = useNavigate()
-  const [show,setShow] = useState(false)
+  const navigate = useNavigate();
+  const [show, setShow] = useState(false);
   return (
     <div className="bg-white w-[320px] h-[160px] lg:w-[420px] lg:h-[210px] m-3 flex justify-between items-center rounded-lg drop-shadow-md">
       <span
@@ -35,7 +35,7 @@ export default function CardEditManga({ manga }) {
               />
             </svg>
           </Anchor>
-          <Anchor to={`/${manga._id}/chapter-form`}>
+          <Anchor to={`/edit-chapters/${manga._id}`}>
             <svg
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
@@ -65,13 +65,13 @@ export default function CardEditManga({ manga }) {
           </p>
         </div>
         <div className="flex">
-          <span
+          <Anchor
+            to={"/edit-manga/" + manga._id}
             className="rounded-full text-[12px] w-[70px] h-[25px] flex justify-center items-center mx-3 text-[#D1FBF0] bg-[#00BA88] hover:drop-shadow-xl cursor-pointer"
             style={{ display: manga.display }}
-            onClick={()=> navigate('/edit-manga/'+manga._id)}
           >
             EDIT
-          </span>
+          </Anchor>
           <span
             className="rounded-full text-[12px] w-[70px] h-[25px] flex justify-center items-center mx-3 text-[#FBDDDC] bg-[#EE8380] hover:drop-shadow-xl cursor-pointer"
             style={{ display: manga.display }}

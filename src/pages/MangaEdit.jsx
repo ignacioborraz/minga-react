@@ -95,19 +95,23 @@ export default function MangaEdit() {
             defaultValue={manga.cover_photo}
           />
           <select
-            defaultValue="default"
+            defaultValue={manga.category_id?.name}
             ref={category}
             className="w-[260px] md:w-[300px] lg:w-[360px] xl:w-[440px] h-[60px] p-2 my-[12px] text-[12px] rounded-lg border-2 border-[#1F1F1F]"
             name="categories"
           >
-            <option defaultValue={manga.category_id?.name} disabled>
-              Category
-            </option>
-            {categories.map((each) => (
-              <option key={each._id} value={each._id}>
-                {each.name}
-              </option>
-            ))}
+            <option disabled>Category</option>
+            {categories.map((each) =>
+              manga.category_id?.name === each.name ? (
+                <option key={each._id} value={each._id} selected>
+                  {each.name}
+                </option>
+              ) : (
+                <option key={each._id} value={each._id}>
+                  {each.name}
+                </option>
+              )
+            )}
           </select>
           <input
             ref={description}
