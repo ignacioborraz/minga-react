@@ -16,3 +16,4 @@ export { default as Page } from '../pages/Page'
 
 export { default as MyMangas } from '../pages/MyMangas'
 export { default as MangaEdit } from '../pages/MangaEdit'
+export { default as ChaptersEdit } from '../pages/ChaptersEdit'

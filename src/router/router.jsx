@@ -14,7 +14,8 @@ import {
   MangaDetail,
   Page,
   MyMangas,
-  MangaEdit
+  MangaEdit,
+  ChaptersEdit
 } from "./index";
 import info from "../utils/info";
 
@@ -98,7 +99,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/edit-chapters/:id",
-        element: <MangaEdit />,
+        element: <ChaptersEdit />,
         loader: async () =>
           (info().role === 0 || info().role === 2 || info().role === 3) &&
           redirect("/bad-auth")
