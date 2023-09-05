@@ -25,6 +25,20 @@ const reducer = createReducer(initial_state, (build) =>
     //console.log(new_state);
     return new_state;
   })
+  .addCase(update_chapter.fulfilled, (state, action) => {
+    let new_state = {
+      ...state,
+      chapters: action.payload.chapters.map(each=> {
+        if (each._id===action.payload.id) {
+          return action.payload.modified
+        } else {
+          return each
+        }
+      })
+    };
+    //console.log(new_state);
+    return new_state;
+  })
 );
 
 

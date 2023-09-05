@@ -7,7 +7,7 @@ import headers from "../utils/headers";
 import ButtonForm from "../components/ButtonForm";
 import { useDispatch, useSelector } from "react-redux";
 import chapter_actions from "../store/actions/chapters";
-const { save_chapters } = chapter_actions;
+const { save_chapters, update_chapter } = chapter_actions;
 
 export default function ChaptersEdit() {
   const { id } = useParams();
@@ -18,7 +18,7 @@ export default function ChaptersEdit() {
   const data = useRef();
   const [manga, setManga] = useState({});
   const [orderOfChapter, setOrderOfChapter] = useState(0);
-  const chapters = useSelector(store=> store.chapters.chapters)
+  const chapters = useSelector((store) => store.chapters.chapters);
   useEffect(() => {
     axios(apiUrl + "/mangas/" + id, headers())
       .then((res) => {
@@ -26,14 +26,17 @@ export default function ChaptersEdit() {
         setManga(res.data.manga);
       })
       .catch((err) => console.log(err));
-    dispatch(save_chapters({manga_id:id}))
+    dispatch(save_chapters({ manga_id: id }));
   }, []);
 
   const update = () => {
-    let order_to_edit = order.current.value
-    let edit_data = {}
-    edit_data[property.current.value] = data.current.value
+    let edit_data = {};
+    edit_data[property.current.value] = data.current.value;
     console.log(edit_data);
+    //console.log(order.current.value);
+    dispatch(
+      update_chapter({ manga_id: id, order: order.current.value, data: edit_data })
+    );
     /* Swal.fire({
       title: "Do you want to update the changes?",
       showCancelButton: true,
@@ -73,12 +76,16 @@ export default function ChaptersEdit() {
             className="w-[260px] md:w-[300px] lg:w-[360px] xl:w-[440px] h-[60px] p-2 my-[12px] text-[12px] rounded-lg border-2 border-[#1F1F1F]"
             name="order"
             ref={order}
-            onChange={(event)=>setOrderOfChapter(event.target.value)}
+            onChange={(event) => setOrderOfChapter(event.target.value)}
           >
             <option value="order" disabled>
               Select order to update
             </option>
-            {chapters.map(each=><option value={each.order} key={each.order}>{each.order}</option>)}
+            {chapters.map((each) => (
+              <option value={each.order} key={each.order}>
+                {each.order}
+              </option>
+            ))}
           </select>
           <select
             defaultValue="property"
@@ -111,10 +118,16 @@ export default function ChaptersEdit() {
         </form>
       </div>
       <div className="hidden md:absolute md:top-0 md:right-0 h-screen w-[50%] md:flex md:flex-col md:justify-center md:items-center">
-        <p>{chapters[orderOfChapter-1]?.title ? `Chapter #${chapters[orderOfChapter-1]?.order} - ${chapters[orderOfChapter-1]?.title}` : manga.title}</p>
+        <p>
+          {chapters[orderOfChapter - 1]?.title
+            ? `Chapter #${chapters[orderOfChapter - 1]?.order} - ${
+                chapters[orderOfChapter - 1]?.title
+              }`
+            : manga.title}
+        </p>
         <img
           className="h-4/5 w-4/5 object-cover"
-          src={chapters[orderOfChapter-1]?.cover_photo || manga.cover_photo}
+          src={chapters[orderOfChapter - 1]?.cover_photo || manga.cover_photo}
           alt="edits"
         />
       </div>

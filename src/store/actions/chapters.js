@@ -1,4 +1,4 @@
-import { createAction,createAsyncThunk } from "@reduxjs/toolkit";
+import { createAction, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 import apiUrl from "../../apiUrl";
 import headers from "../../utils/headers";
@@ -14,7 +14,10 @@ const save_chapter = createAction("save_mangas_me", (data) => {
 
 const save_chapters = createAsyncThunk("save_chapters", async (obj) => {
   try {
-    const res = await axios(`${apiUrl}/chapters/me?manga_id=${obj.manga_id}`, headers());
+    const res = await axios(
+      `${apiUrl}/chapters/me?manga_id=${obj.manga_id}`,
+      headers()
+    );
     //console.log(res.data.response);
     return { chapters: res.data.response };
   } catch (error) {
@@ -25,13 +28,19 @@ const save_chapters = createAsyncThunk("save_chapters", async (obj) => {
 
 const update_chapter = createAsyncThunk(
   "update_chapter",
-  async ({ id, data, category }) => {
+  async ({ manga_id, order, data }) => {
     try {
-      let modified = await axios.put(`${apiUrl}/mangas/${id}`, data, headers());
-      return { id, modified: modified.data.response, category };
+      console.log({ manga_id, order, data });
+      let modified = await axios.put(
+        `${apiUrl}/chapters?=manga_id=${manga_id}&order=${order}`,
+        data,
+        headers()
+      );
+      console.log(modified);
+      return { id, modified: modified.data.response };
     } catch (error) {
       console.log(error);
-      return { id: "" };
+      return { id, modified: modified.data.response };
     }
   }
 );
@@ -40,7 +49,7 @@ const destroy_chapter = createAsyncThunk(
   "destroy_chapter",
   async ({ id, category }) => {
     try {
-      await axios.delete(`${apiUrl}/mangas/${id}`, headers());
+      await axios.delete(`${apiUrl}/chapters/${id}`, headers());
       return { id, category };
     } catch (error) {
       console.log(error);

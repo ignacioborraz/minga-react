@@ -9,7 +9,7 @@ export default function MyMangas() {
   const dispatch = useDispatch();
   const selectedCat = useSelector((store) => store.mangas.checks);
   let mangas_by_cat = useSelector((store) => store.mangas.mangas_by_cat);
-  console.log(mangas_by_cat);
+  //console.log(mangas_by_cat);
   let categories = useSelector((store) => store.mangas.categories);
   const [reload, setReload] = useState(false);
   const navigate = useNavigate();
@@ -50,7 +50,7 @@ export default function MyMangas() {
       </h3>
       <div className="flex-grow rounded-[40px_40px_0_0] w-full md:w-[720px] lg:w-11/12 2xl:w-[1375px] flex flex-col justify-start items-center bg-white">
         <form className="w-full flex justify-center my-5" ref={current_checks}>
-          {(selectedCat.includes("new") || selectedCat.length===0 ) ? (
+          {selectedCat.includes("new") || selectedCat.length === 0 ? (
             <label className="rounded-full text-[14px] w-[70px] h-[35px] flex justify-center items-center mx-3 bg-gray-700 text-gray-300">
               new
               <input
