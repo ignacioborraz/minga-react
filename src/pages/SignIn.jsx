@@ -16,7 +16,7 @@ export default function SignIn() {
     };
     //console.log(data)
     axios
-      .post(apiUrl + "/auth/signin", data)
+      .post(apiUrl + "/auth/signin", data, { withCredentials: true })
       .then((res) => {
         localStorage.setItem("token", res.data.response.token);
         localStorage.setItem("user", JSON.stringify(res.data.response.user));

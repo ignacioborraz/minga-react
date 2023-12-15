@@ -4,6 +4,7 @@ import axios from "axios";
 import apiUrl from "../apiUrl";
 import Swal from "sweetalert2";
 import ButtonForm from "../components/ButtonForm";
+import Google from "../components/Google";
 
 export default function Register() {
   const navigate = useNavigate();
@@ -70,6 +71,7 @@ export default function Register() {
             placeholder="Password"
           />
           <ButtonForm onClick={register} value="register!" />
+          <Google />
         </form>
         <p className="font-semibold text-[12px] mt-[12px] text-center p-2">
           Already have an account?{" "}

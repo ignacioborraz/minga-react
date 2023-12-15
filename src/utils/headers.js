@@ -1,5 +1,5 @@
 export default function() {
     let token = localStorage.getItem('token')
-    let headers = { headers:{ 'Authorization':`Bearer ${token}` } }
+    let headers = { headers:{ 'Authorization':`Bearer ${token}` }, withCredentials: true }
     return headers
 }
